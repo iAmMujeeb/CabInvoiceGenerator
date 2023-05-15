@@ -22,8 +22,17 @@ public class CabInvoice {
     public Invoice generateInvoice(Ride[] rides) {
         int totalRides = rides.length;
         double totalFare = calculateFare(rides);
-        double avgFare = totalFare/totalRides;
-        Invoice invoice = new Invoice(totalRides,totalFare,avgFare);
+        double avgFare = totalFare / totalRides;
+        Invoice invoice = new Invoice(totalRides, totalFare, avgFare);
+        return invoice;
+    }
+
+    public Invoice generateInvoice(int userId) {
+        int totalRides = RideRepository.creatingUsers();
+        Ride[] listOfRides = RideRepository.users.get(userId);
+        double totalFare = calculateFare(listOfRides);
+        double avgFare = totalFare / totalRides;
+        Invoice invoice = new Invoice(totalRides, totalFare, avgFare);
         return invoice;
     }
 }

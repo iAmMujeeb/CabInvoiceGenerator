@@ -2,6 +2,7 @@ package com.bridgelabz;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import java.util.HashMap;
 
 public class CabInvoiceTest {
     @Test
@@ -34,9 +35,19 @@ public class CabInvoiceTest {
         CabInvoice cabInvoice = new CabInvoice();
         Ride[] rides = {new Ride(5, 30), new Ride(10, 20), new Ride(15, 40)};
         Invoice invoice = cabInvoice.generateInvoice(rides);
-        Invoice expectedInvoice = new Invoice(3,390,130);
+        Invoice expectedInvoice = new Invoice(3, 390, 130);
         Assertions.assertEquals(expectedInvoice, invoice);
     }
+
+    @Test
+    public void givenUserIdInvoiceGeneratorGetsRideRepositoryShouldReturnInvoice() {
+        CabInvoice cabInvoice = new CabInvoice();
+        int userId = 1;
+        Invoice invoice = cabInvoice.generateInvoice(userId);
+        Invoice expectedInvoice = new Invoice(3, 390, 130);
+        Assertions.assertEquals(expectedInvoice, invoice);
+    }
+
 }
 
 
