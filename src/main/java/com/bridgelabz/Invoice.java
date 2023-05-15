@@ -13,11 +13,11 @@ public class Invoice {
         this.avgFare = avgFare;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Invoice invoice = (Invoice) o;
+        if (!(o instanceof Invoice invoice)) return false;
         return totalRides == invoice.totalRides && Double.compare(invoice.totalFare, totalFare) == 0 && Double.compare(invoice.avgFare, avgFare) == 0;
     }
 
