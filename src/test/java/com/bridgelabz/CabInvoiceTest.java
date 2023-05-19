@@ -48,6 +48,20 @@ public class CabInvoiceTest {
         Assertions.assertEquals(expectedInvoice, invoice);
     }
 
+    @Test
+    public void givenDistance_TimeAndRideTypeShouldReturnTotalFare() {
+        CabInvoice cabInvoice = new CabInvoice();
+        double actualCost = cabInvoice.calculateFare(5, 30,"Normal Rides");
+        Assertions.assertEquals(80, actualCost);
+    }
+
+    @Test
+    public void givenDistance_TimeAndRideType1ShouldReturnTotalFare() {
+        CabInvoice cabInvoice = new CabInvoice();
+        double actualCost = cabInvoice.calculateFare(5, 30,"Premium Rides");
+        Assertions.assertEquals(135, actualCost);
+    }
+
 }
 
 
